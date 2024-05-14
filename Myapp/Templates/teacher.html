@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block body %}
+{% if request.user.is_authenticated %}
+<a href="{% url 'create_teacher'%}" class="btn btn-primary">Create Teacher</a>
+<table class="table caption-top">
+  <caption>List of Teachers</caption>
+  <thead>
+  <tr>
+    <th scope="col">Teacher Name</th>
+    <th scope="col">Teacher Email</th>
+    <th scope="col">Course Taught</th>
+    <th scope="col">Operation</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  {% for i in teach %}
+  <tr>
+    <td>{{i.Teacher_Name}}</td>
+    <td>{{i.Teacher_email}}</td>
+     <td>
+        <ul>
+          {% for course in i.Course_Taught.all %}
+            <li>{{ course.Course_Name }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    <td>
+      <a class="btn btn-danger" href="{% url 'delete teacher' i.id %}">Delete</a>
+      <a class="btn btn-secondary" href= "{% url 'update teacher' i.id %}">Update</a>
+    </td>
+  </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% endif %}
+{% endblock %}

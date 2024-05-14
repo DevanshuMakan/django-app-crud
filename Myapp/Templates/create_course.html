@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <h1>Create Course</h1>
+<form  method="post">
+    {% csrf_token %}
+    <input type="text" name="course_name" placeholder="Course Name">
+    <input type="text" name="course_fee", placeholder="Course Fees">
+    <input type="text" name="course_duration", placeholder="Course Duration">
+   <input type="submit" value="Submit">
+</form>
+
+{% endblock %}

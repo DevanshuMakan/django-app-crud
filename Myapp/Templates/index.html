@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Course</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in stud %}
+    <tr>
+      <td>{{i.Student_Name}}</td>
+      <td>{{i.Student_Age}}</td>
+      <td>{{i.Student_course}}</td>
+  {% endfor %}
+    </tr>
+  </tbody>
+</table>

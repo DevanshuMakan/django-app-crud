@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <h1>Create Teacher</h1>
+<form  method="post">
+    {% csrf_token %}
+    <input type="text" name="teacher_name" placeholder="Teacher Name">
+    <input type="email" name="teacher_email", placeholder="Email">
+   <select name="course" multiple required>
+       {% for i in courses %}
+       <option value="{{i.id}}">{{i.Course_Name}}</option>
+        {% endfor %}
+   </select>
+   <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
