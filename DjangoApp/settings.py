@@ -1,3 +1,4 @@
+
 """
 Django settings for DjangoApp project.
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Myapp',
     'Accounts',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +54,7 @@ MIDDLEWARE = [
     'DjangoApp.Project Middleware.middleware.simplemiddleware',
 
 ]
+
 
 ROOT_URLCONF = 'DjangoApp.urls'
 
@@ -83,6 +86,13 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '810108055529-5f1p0vl7q4mqq56t4km162an42miln2h.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
 
 
 # Password validation
@@ -129,3 +139,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'homw'
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'

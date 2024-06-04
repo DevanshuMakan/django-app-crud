@@ -73,6 +73,7 @@ button:hover {
         <input type="password" id="password" name="password" required>
       </div>
       <button type="submit">Login</button>
+      <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
     </form>
   </div>
 </form>
